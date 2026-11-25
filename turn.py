@@ -13,7 +13,7 @@ def read_player_move(hand):
         print("Invalid set. Try again.")
 
 def find_computer_move(hand):
-    pass
+    return read_player_move(hand)
 
 def play_turn(hand, pool, table, move):
     if move != None:

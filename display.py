@@ -9,6 +9,10 @@ def display_hand(msg, hand):
     print("\n")
 
 def display_table(msg, table):
+    print(msg)
     for sets in table:
+        c = 1
         for card in sets:
-            print()
+            print(f"{c}{card[0]}{card[1]}", end="\t")
+        c += 1
+        print()
