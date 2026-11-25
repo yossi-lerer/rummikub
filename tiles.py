@@ -9,8 +9,18 @@ def create_pool():
     random.shuffle(pool)
     return pool
 
+def dealing_cards(cards):
+    player = []
+    computer = []
+    for _ in range(9):
+        player.append(cards.pop())
+        computer.append(cards.pop())
+    return player, computer, cards
+
 # [(1, R),(2, R),(3, R),(4, R)]
 def is_valid_set(tiles):
+    if len(tiles) < 3:
+        return False
     tiles = sorted(tiles, key=lambda t: t[0] or t[1])
     
     last_card = tiles[0]
@@ -42,11 +52,15 @@ def is_valid_set(tiles):
     
     return flag
 
-
-def play_set(hand, table, indexes):
-    pass
+def play_set(hand: list, table: list, indexes: list) -> list: 
+    hand_set = []
+    for i in indexes:
+        hand_set.append(hand.pop(i))
+    table.append(hand_set)
+    return hand_set
 
 if __name__ == "__main__":
-    print(is_valid_set([(1, "R"),(2, "R"),(3, "R"),(4, "R")]))
-    print(is_valid_set([(4, "R"),(4, "B"),(4, "R"),(4, "O")]))
-    print(create_pool())
+    print(len(dealing_cards(create_pool())[2]))
+    # print(is_valid_set([(1, "k"),(1, "k"),(1, "R")]))
+    # print(is_valid_set([(4, "R"),(4, "B"),(4, "R"),(4, "O")]))
+    # print(create_pool())
