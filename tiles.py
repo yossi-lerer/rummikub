@@ -54,7 +54,7 @@ def is_valid_set(tiles):
 
 def play_set(hand: list, table: list, indexes: list) -> list: 
     hand_set = []
-    for i in indexes:
+    for i in indexes[::-1]:
         hand_set.append(hand.pop(i))
     table.append(hand_set)
     return hand_set
